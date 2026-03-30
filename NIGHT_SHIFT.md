@@ -208,32 +208,3 @@ A human reviewer should not be catching obvious, basic issues. If that is happen
 
 The standard is high: human time and energy are precious, so the workflow must demand the agent's best effort.
 
-## Results So Far
-
-This workflow began in early form about a month before the article was written, and the reported results improved day by day.
-
-The outcomes so far:
-
-- Less babysitting
-- More time spent thinking about real problems
-- Higher productivity
-- Less context switching
-- A calmer, more peaceful workflow
-- Better uninterrupted overnight execution
-
-One experiment involved having Codex observe what Claude was doing and write feedback into a file. Claude knew this was happening, tailed the file, and pulled the feedback into its process. According to the write-up, it worked surprisingly well and may be used more often in the future.
-
-## Example Reviewer Prompt
-
-```text
-I have another agent doing the AGENTS_LOOP.md right now, working through TODOS.md. What I'd like you to do is do your own loop as an expert reviewer.
-
-    Sleep for 5 minutes at a time.
-    Then, wake up look at the current git log to see if any new commits have landed
-    Systematically review them against the corresponding TODOS.md entry.
-    Provide your feedback about each commit in a file named TODOS_CODEX_REVIEW.md located in the same folder as TODOS.md.
-    I will tell the other agent to take a look at your notes for it in that folder, and it will then incorporate your feedback in a separate, second loop.
-    If you do not find any new commits (even if there are working tree changes), please don't do anything and just sleep again.
-    You'll know you should be done when all the current TODOs are marked complete or moved into the 'NEEDS INPUT FROM USER' section. In that case, you can stop.
-    If you do not see any changes within 30 minutes, go ahead and stop, as the other agent may have quit prematurely.
-```
